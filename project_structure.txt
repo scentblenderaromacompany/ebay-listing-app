@@ -1,0 +1,46 @@
+.
+├── config
+│   └── logging.conf
+├── database
+│   └── ebay_listing.db
+├── fonts
+│   └── GreatVibes-Regular.ttf
+├── input
+│   └── raw
+│       └── images
+├── logs
+│   └── application.log
+├── misc
+├── output
+│   └── processed
+│       └── images
+├── project_structure.txt
+├── scripts
+│   ├── image_processing.py
+│   ├── init_db.py
+│   ├── process_folders.py
+│   ├── reset_db.py
+│   └── update_sku_counter.py
+└── venv
+    ├── bin
+    │   ├── activate
+    │   ├── activate.csh
+    │   ├── activate.fish
+    │   ├── Activate.ps1
+    │   ├── pip
+    │   ├── pip3
+    │   ├── pip3.11
+    │   ├── python -> python3
+    │   ├── python3 -> /usr/bin/python3
+    │   └── python3.11 -> python3
+    ├── include
+    │   └── python3.11
+    ├── lib
+    │   └── python3.11
+    ├── lib64 -> lib
+    └── pyvenv.cfg
+
+20 directories, 21 files
+
+
+ tree -L 3 > project_structure.txt

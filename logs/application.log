@@ -1,0 +1,10 @@
+2024-07-15 22:04:45 - root - ERROR - An error occurred during processing
+Traceback (most recent call last):
+  File "/home/robertmcasper/ebay-listing-app/scripts/process_folders.py", line 102, in <module>
+    process_folders()
+  File "/home/robertmcasper/ebay-listing-app/scripts/process_folders.py", line 66, in process_folders
+    current_sku = get_last_sku_number()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/robertmcasper/ebay-listing-app/scripts/process_folders.py", line 50, in get_last_sku_number
+    cursor.execute('SELECT sku_number FROM sku_tracker ORDER BY id DESC LIMIT 1')
+sqlite3.OperationalError: no such table: sku_tracker
