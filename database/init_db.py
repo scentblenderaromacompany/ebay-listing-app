@@ -1,7 +1,12 @@
 import sqlite3
+import os
 
 # Database file path
 db_path = "../database/ebay_listing.db"
+db_dir = os.path.dirname(db_path)
+
+# Create the directory if it doesn't exist
+os.makedirs(db_dir, exist_ok=True)
 
 # Connect to the database
 conn = sqlite3.connect(db_path)

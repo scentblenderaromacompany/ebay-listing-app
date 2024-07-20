@@ -1,28 +1,51 @@
-# /home/robertmcasper/ebay-listing-app/Listing/add_inventory_item.py
-
-import sys
-import os
-from ebaysdk.trading import Connection as Trading
-from ebaysdk.exception import ConnectionError
-
+# /home/robertmcasper/ebay-listing-app/Listing/add_inventory_item.=
 # Add the config directory to the system path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config'))
 
-from config_loader import load_ebay_config, get_ebay_token
+def load_ebay_config(config_path):
+    with open(config_path, 'r') as file:
+        config = yaml.safe_load(file)
+    return config['api']
 
-def add_inventory_item(item_details, config_path, env='api.ebay.com'):
-    config = load_ebay_config(config_path)
-    token = get_ebay_token(config, env)
+def get_ebay_token(config, env):
     try:
-        api = Trading(domain=env, appid=config[env]['appid'], certid=config[env]['certid'], devid=config[env]['devid'], token=token, config_file=None)
+        return config[env]['token']
+    except KeyError:
+        raise KeyError(f"The environment '{env}' is not found in the configuration or the token is missing.")
+
+def create_ebay_connection(config, env, token):
+    try:
+        return Trading(
+            domain=env,
+            appid=config[env]['appid'],
+            certid=config[env]['certid'],
+            devid=config[env]['devid'],
+            token=token,
+            config_file=None
+        )
+    except KeyError as e:
+        raise KeyError(f"Missing key in configuration: {e}")
+
+def add_inventory_item(item_details, config_path, env='production.ebay.com'):
+    config = load_ebay_config(config_path)
+    if env not in config:
+        print(f"Error: The environment '{env}' is not found in the configuration.")
+        return
+    
+    try:
+        token = get_ebay_token(config, env)
+        api = create_ebay_connection(config, env, token)
         response = api.execute('AddFixedPriceItem', item_details)
         if response.reply.Ack == 'Success':
             print(f"Successfully added item: {response.reply.ItemID}")
         else:
             print(f"Failed to add item: {response.reply.Errors}")
     except ConnectionError as e:
-        print(e)
-        print(e.response.dict())
+        print(f"Connection error: {e}")
+        if e.response:
+            print(e.response.dict())
+    except KeyError as e:
+        print(f"Configuration error: {e}")
 
 # Example usage
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ import tempfile
 import os
 
 # Import functions from the main script
-from ebay_image_search import read_config, validate_base64_string, ebay_image_search, process_subfolders
+from scripts.ebay_image_search import read_config, validate_base64_string, ebay_image_search, process_subfolders
 
 class TestEbayImageSearch(unittest.TestCase):
 
