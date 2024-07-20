@@ -46,6 +46,11 @@ def update_yaml_file(sandbox_token, production_token, yaml_path):
     with open(yaml_path, 'r') as file:
         config = yaml.safe_load(file)
 
+    if 'api.sandbox.ebay.com' not in config:
+        config['api.sandbox.ebay.com'] = {}
+    if 'api.ebay.com' not in config:
+        config['api.ebay.com'] = {}
+
     config['api.sandbox.ebay.com']['token'] = sandbox_token
     config['api.ebay.com']['token'] = production_token
 
@@ -73,7 +78,7 @@ if __name__ == "__main__":
         logging.info("Using sandbox token for production environment.")
         production_token = sandbox_token
 
-    yaml_path = '/home/robertmcasper/ebay-listing-app/config/ebay.yaml'
+    yaml_path = '/Users/owner/Bobs Repos/ebay-listing-app/config/ebay.yaml'
     update_yaml_file(sandbox_token, production_token, yaml_path)
 
     logging.info("Tokens updated in ebay.yaml")

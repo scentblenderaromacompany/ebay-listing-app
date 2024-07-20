@@ -3,5 +3,4 @@ colorlog
 numpy
 opencv-python
 pyheif
-colorlog
-sqlite3
+requests
