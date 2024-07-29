@@ -1,7 +1,7 @@
 import sqlite3
 
 # Database file path
-db_path = "../database/ebay_listing.db"
+db_path = "/home/robertmcasper/Repos/ebay-listing-app/database/ebay_listing.db"
 
 # New SKU number to start from
 new_sku_number = 0

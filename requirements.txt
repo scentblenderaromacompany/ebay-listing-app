@@ -4,3 +4,14 @@ numpy
 opencv-python
 pyheif
 requests
+pyyaml
+colorlog
+flask
+flask_sqlalchemy
+requests 
+beautifulsoup4 
+pandas
+scikit-learn
+tensorflow
+pip install sqlite3
+

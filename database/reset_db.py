@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 # Database file path
-db_path = "/home/robertmcasper/ebay-listing-app/database/ebay_listing.db"
+db_path = "/home/robertmcasper/Repos/ebay-listing-app/database/ebay_listing.db"
 db_dir = os.path.dirname(db_path)
 
 # Create the directory if it doesn't exist

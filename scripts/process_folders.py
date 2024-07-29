@@ -6,10 +6,10 @@ import logging
 import colorlog
 
 # Paths
-input_dir = "/home/robertmcasper/ebay-listing-app/input/raw/images"
-output_dir = "/home/robertmcasper/ebay-listing-app/output/processed/images"
-db_path = "../database/ebay_listing.db"
-log_file_path = "../logs/application.log"
+input_dir = "/home/robertmcasper/Repos/ebay-listing-app/input/raw/images"
+output_dir = "/home/robertmcasper/Repos/ebay-listing-app/output/processed/images"
+db_path = "/home/robertmcasper/Repos/ebay-listing-app/database/ebay_listing.db"
+log_file_path = "/home/robertmcasper/Repos/ebay-listing-app/application.log"
 
 # Ensure the output directory exists
 os.makedirs(output_dir, exist_ok=True)

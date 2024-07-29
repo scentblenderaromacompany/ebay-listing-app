@@ -34,7 +34,7 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 SUPPORTED_IMAGE_TYPES = ['.heic', '.jpg', '.jpeg', '.tiff']
-FONT_PATH = '/home/robertmcasper/ebay-listing-app/fonts/GreatVibes-Regular.ttf'
+FONT_PATH = '/home/robertmcasper/Repos/ebay-listing-app/fonts/GreatVibes-Regular.ttf'
 DEFAULT_FONT_PATH = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 THUMBNAIL_SIZE = (300, 300)
 MAX_THREADS = 2  # Limit the number of threads
@@ -162,7 +162,7 @@ def process_subfolders(output_dir):
                 logger.error("Failed to process image.")
 
 if __name__ == "__main__":
-    output_dir = '/home/robertmcasper/ebay-listing-app/output/processed/images'
+    output_dir = '/home/robertmcasper/Repos/ebay-listing-app/output/processed/images'
 
     if not os.path.exists(output_dir):
         logger.error(f"Output directory does not exist: {output_dir}")
